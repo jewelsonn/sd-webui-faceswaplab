@@ -45,7 +45,6 @@ def face_inpainting_ui(id_prefix: str = "faceswaplab") -> List[gr.components.Com
 
     inpaiting_model = gr.Dropdown(
         choices=["Current"] + sd_models.checkpoint_tiles(),
-        default="Current",
         label="sd model (experimental)",
         elem_id=f"{id_prefix}_pp_inpainting_sd_model",
     )

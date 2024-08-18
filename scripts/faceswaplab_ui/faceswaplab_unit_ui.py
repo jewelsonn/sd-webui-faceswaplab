@@ -113,10 +113,9 @@ def faceswap_unit_ui(
                     elem_id=f"{id_prefix}_face{unit_num}_reference_image",
                 )
                 batch_files = gr.components.File(
-                    type="file",
+                    type="filepath",
                     file_count="multiple",
                     label="Batch Sources Images",
-                    optional=True,
                     elem_id=f"{id_prefix}_face{unit_num}_batch_source_face_files",
                 )
             gr.Markdown(
@@ -144,13 +143,13 @@ def faceswap_unit_ui(
             with gr.Row():
                 enable = gr.Checkbox(
                     False,
-                    placeholder="enable",
+                    info="enable",
                     label="Enable",
                     elem_id=f"{id_prefix}_face{unit_num}_enable",
                 )
                 blend_faces = gr.Checkbox(
                     True,
-                    placeholder="Blend Faces",
+                    info="Blend Faces",
                     label="Blend Faces ((Source|Checkpoint)+References = 1)",
                     elem_id=f"{id_prefix}_face{unit_num}_blend_faces",
                     interactive=True,
@@ -162,19 +161,19 @@ def faceswap_unit_ui(
             with gr.Row():
                 same_gender = gr.Checkbox(
                     False,
-                    placeholder="Same Gender",
+                    info="Same Gender",
                     label="Same Gender",
                     elem_id=f"{id_prefix}_face{unit_num}_same_gender",
                 )
                 sort_by_size = gr.Checkbox(
                     False,
-                    placeholder="Sort by size",
+                    info="Sort by size",
                     label="Sort by size (larger>smaller)",
                     elem_id=f"{id_prefix}_face{unit_num}_sort_by_size",
                 )
             target_faces_index = gr.Textbox(
                 value=f"{unit_num-1}",
-                placeholder="Which face to swap (comma separated), start from 0 (by gender if same_gender is enabled)",
+                info="Which face to swap (comma separated), start from 0 (by gender if same_gender is enabled)",
                 label="Target face : Comma separated face number(s)",
                 elem_id=f"{id_prefix}_face{unit_num}_target_faces_index",
             )
@@ -185,7 +184,7 @@ def faceswap_unit_ui(
                 value=0,
                 precision=0,
                 minimum=0,
-                placeholder="Which face to get from reference image start from 0",
+                info="Which face to get from reference image start from 0",
                 label="Reference source face : start from 0",
                 elem_id=f"{id_prefix}_face{unit_num}_reference_face_index",
             )
@@ -195,14 +194,14 @@ def faceswap_unit_ui(
             )
             swap_in_source = gr.Checkbox(
                 False,
-                placeholder="Swap face in source image",
+                info="Swap face in source image",
                 label="Swap in source image (blended face)",
                 visible=is_img2img,
                 elem_id=f"{id_prefix}_face{unit_num}_swap_in_source",
             )
             swap_in_generated = gr.Checkbox(
                 True,
-                placeholder="Swap face in generated image",
+                info="Swap face in generated image",
                 label="Swap in generated image",
                 visible=is_img2img,
                 elem_id=f"{id_prefix}_face{unit_num}_swap_in_generated",
@@ -223,7 +222,7 @@ Otherwise, read the [doc](https://glucauze.github.io/sd-webui-faceswaplab/doc/) 
             with gr.Row():
                 check_similarity = gr.Checkbox(
                     False,
-                    placeholder="discard",
+                    info="discard",
                     label="Check similarity",
                     elem_id=f"{id_prefix}_face{unit_num}_check_similarity",
                 )

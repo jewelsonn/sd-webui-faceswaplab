@@ -249,10 +249,9 @@ def tools_ui() -> None:
             )
             with gr.Row():
                 build_batch_files = gr.components.File(
-                    type="file",
+                    type="filepath",
                     file_count="multiple",
                     label="Batch Sources Images",
-                    optional=True,
                     elem_id="faceswaplab_build_batch_files",
                 )
                 preview = gr.components.Image(
@@ -265,20 +264,20 @@ def tools_ui() -> None:
                 )
             build_name = gr.Textbox(
                 value="Face",
-                placeholder="Name of the character",
+                info="Name of the character",
                 label="Name of the character",
                 elem_id="faceswaplab_build_character_name",
             )
             build_gender = gr.Dropdown(
                 value=Gender.AUTO.name,
                 choices=[e.name for e in Gender],
-                placeholder="Gender of the character",
+                info="Gender of the character",
                 label="Gender of the character",
                 elem_id="faceswaplab_build_character_gender",
             )
             build_overwrite = gr.Checkbox(
                 False,
-                placeholder="overwrite",
+                info="overwrite",
                 label="Overwrite Checkpoint if exist (else will add number)",
                 elem_id="faceswaplab_build_overwrite",
             )
@@ -310,10 +309,9 @@ def tools_ui() -> None:
             )
             with gr.Row():
                 extracted_source_files = gr.components.File(
-                    type="file",
+                    type="filepath",
                     file_count="multiple",
                     label="Batch Sources Images",
-                    optional=True,
                     elem_id="faceswaplab_extract_batch_images",
                 )
                 extracted_faces = gr.Gallery(
@@ -366,10 +364,9 @@ def tools_ui() -> None:
             )
             with gr.Row():
                 batch_source_files = gr.components.File(
-                    type="file",
+                    type="filepath",
                     file_count="multiple",
                     label="Batch Sources Images",
-                    optional=True,
                     elem_id="faceswaplab_batch_images",
                 )
                 batch_results = gr.Gallery(
